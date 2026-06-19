@@ -12,7 +12,8 @@
 <style>
 :root{--bg:#080c14;--s1:#0e1520;--s2:#161e2e;--s3:#1c2538;--brd:#243048;--tx:#dde6f5;--mu:#6b7fa3;--bl:#3d8ef0;--blb:#5aa3ff;--gn:#2ecc71;--yl:#f0c040;--or:#e07830;--rd:#e84040;--pu:#a070f0;--cy:#30d0e0;--ac:#1a4a8a;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+html{height:-webkit-fill-available;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);height:100vh;height:100dvh;min-height:-webkit-fill-available;display:flex;flex-direction:column;overflow:hidden;}
 
 /* ── OVERLAY SCREENS ── */
 @keyframes radarSweep{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
@@ -329,21 +330,23 @@ header{background:linear-gradient(135deg,#07101e,#0a1525);border-bottom:2px soli
   .sinput{font-size:16px;} /* prevents iOS auto-zoom */
   .sbtn{padding:14px;}
 
-  /* Header compact */
-  header{flex-wrap:wrap;gap:5px;padding:5px 8px;}
+  /* Header compact — single row only */
+  header{flex-wrap:nowrap;gap:4px;padding:4px 8px;overflow:hidden;}
   .htitle{display:none;}
   .hname{display:none;}
   #rftmr{display:none;}
-  .locbar{order:10;width:100%;}
-  .locbar input{width:auto;flex:1;}
-  .hlogs img{height:32px;width:32px;}
+  .locbar{flex:1;min-width:0;}
+  .locbar input{width:0;flex:1;min-width:0;font-size:13px;}
+  .hlogs img{height:28px;width:28px;}
+  .chasebtn{font-size:10px;padding:3px 7px;}
+  .btn-sm{font-size:10px;padding:3px 6px;}
 
   /* Show mobile nav + spacer */
   #mob-nav{display:flex;}
   #mob-spacer{display:block;}
 
   /* Main: single-panel stack */
-  .main{display:block;position:relative;overflow:hidden;}
+  .main{display:block;position:relative;overflow:hidden;flex:1;}
   .main>.panel{position:absolute!important;top:0;left:0;right:0;bottom:0;display:none!important;}
   .main>.panel.mob-active{display:flex!important;}
 
